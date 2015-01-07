@@ -16,20 +16,26 @@
     </sprites>
     <sprites name="Items">
       <sprite>sprites\spr_key_red</sprite>
+      <sprite>sprites\spr_key_blue</sprite>
       <sprite>sprites\spr_keule</sprite>
     </sprites>
     <sprites name="Building">
       <sprite>sprites\spr_floor</sprite>
       <sprite>sprites\spr_wall</sprite>
       <sprite>sprites\spr_lock_red</sprite>
+      <sprite>sprites\spr_lock_blue</sprite>
+      <sprite>sprites\spr_water</sprite>
+      <sprite>sprites\spr_earth</sprite>
     </sprites>
     <sprites name="Player">
       <sprite>sprites\spr_player</sprite>
+      <sprite>sprites\spr_player_water</sprite>
     </sprites>
     <sprites name="HUD">
       <sprite>sprites\spr_hud_background</sprite>
       <sprites name="Inventory">
         <sprite>sprites\spr_inventory_redkey</sprite>
+        <sprite>sprites\spr_inventory_bluekey</sprite>
       </sprites>
     </sprites>
   </sprites>
@@ -42,11 +48,15 @@
     <objects name="Items">
       <object>objects\obj_keule</object>
       <object>objects\obj_key_red</object>
+      <object>objects\obj_key_blue</object>
     </objects>
     <objects name="Building">
       <object>objects\obj_floor</object>
       <object>objects\obj_wall</object>
       <object>objects\obj_lock_red</object>
+      <object>objects\obj_lock_blue</object>
+      <object>objects\obj_water</object>
+      <object>objects\obj_earth</object>
     </objects>
     <objects name="Player">
       <object>objects\obj_player</object>
@@ -55,6 +65,7 @@
       <object>objects\obj_hud_background</object>
       <objects name="Inventory">
         <object>objects\obj_inventory_redkey</object>
+        <object>objects\obj_inventory_bluekey</object>
       </objects>
     </objects>
   </objects>
