@@ -119,30 +119,90 @@ if(alarm[0] == -1)
 }
 
 //MOVEMENT
+
+var earthleft;
+var earthright;
+var earthup;
+var earthdown;
+earthleft = instance_place(x - 32, y, obj_earth);
+earthright = instance_place(x + 32, y, obj_earth);
+earthup = instance_place(x, y - 32, obj_earth);
+earthdown = instance_place(x, y + 32, obj_earth);
+
 switch (keyboard_key)
 {
     case vk_left:
-        if (place_free(x -32, y) &amp;&amp; alarm[0] == 0)
+        if (place_free(x -32, y) &amp;&amp; alarm[0] == 0 || (place_meeting(x -32, y, obj_earth) &amp;&amp; alarm[0] == 0))
         {   
-            x-=32;
+            if(earthleft)
+            {
+               if(!place_meeting(earthleft.x -32,  earthleft.y, obj_earth))
+               { 
+                    earthleft.x -=32;   
+                    x -=32;
+               }
+            }
+            else
+            {
+                x-=32;
+            }
+            
         }
         break;
+        
+        
     case vk_right:
-        if (place_free(x +32, y) &amp;&amp; alarm[0] == 0)
-        {
-            x+=32;
+        if (place_free(x + 32, y) &amp;&amp; alarm[0] == 0 || (place_meeting(x + 32, y, obj_earth) &amp;&amp; alarm[0] == 0))
+        {   
+            if(earthright)
+            {
+               if(!place_meeting(earthright.x +32,  earthright.y, obj_earth))
+               { 
+                    earthright.x +=32;   
+                    x +=32;
+               }
+            }
+            else
+            {
+                x+=32;
+            }
+            
         }
         break;
     case vk_up:
-        if (place_free(x , y - 32) &amp;&amp; alarm[0] == 0)
-        {
-            y-=32;
+        if (place_free(x , y - 32) &amp;&amp; alarm[0] == 0 || (place_meeting(x , y - 32, obj_earth) &amp;&amp; alarm[0] == 0))
+        {   
+            if(earthup)
+            {
+               if(!place_meeting(earthup.x,  earthup.y - 32 , obj_earth))
+               { 
+                    earthup.y -=32;   
+                    y -=32;
+               }
+            }
+            else
+            {
+                y-=32;
+            }
+            
         }
     break;
     case vk_down:
-        if (place_free(x , y + 32) &amp;&amp; alarm[0] == 0)
-        {
-            y+=32;
+        if (place_free(x , y + 32) &amp;&amp; alarm[0] == 0 || (place_meeting(x , y + 32, obj_earth) &amp;&amp; alarm[0] == 0))
+        {   
+            if(earthdown)
+            {
+               if(!place_meeting(earthdown.x,  earthdown.y + 32 , obj_earth))
+               { 
+                    earthdown.y +=32;   
+                    y +=32;
+               }
+            }
+            else
+            {
+                y+=32;
+            }
+            
         }
     break;
 }
