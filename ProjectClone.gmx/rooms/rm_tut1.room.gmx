@@ -164,7 +164,7 @@
     <instance objName="obj_wall" x="224" y="384" name="inst_5A924E3F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="224" y="352" name="inst_55B29D7D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="224" y="320" name="inst_B00683E2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_keule" x="704" y="384" name="inst_CC0C04D4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meat" x="704" y="384" name="inst_CC0C04D4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coll" x="224" y="288" name="inst_E4BCFEFB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coll" x="256" y="288" name="inst_E06489F8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coll" x="288" y="288" name="inst_78964A78" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

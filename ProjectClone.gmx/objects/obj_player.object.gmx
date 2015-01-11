@@ -35,6 +35,9 @@ globalvar movestate;
 movestate = 0;
 
 //INVENTORY
+globalvar meat;
+meat = 0;
+    //KEYS
 globalvar yellowkey;
 yellowkey  = 0;
 globalvar redkey;
@@ -43,6 +46,9 @@ globalvar greenkey;
 greenkey = 0;
 globalvar bluekey;
 bluekey = 0;
+    //ITEMS
+globalvar flippers;
+flippers = 1;
 </string>
           </argument>
         </arguments>
@@ -112,33 +118,30 @@ if(room_get_name(room) == "rm_tut1") room_goto(rm_tut2);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//MOVEMENTCOUNTER
+            <string>  //MOVEMENTCOUNTER
 if(alarm[0] == -1)
 {
     alarm[0]= 2;
 }
+//COLLISONVARIABLE
+var collision_earth;
 
 //MOVEMENT
 
-var earthleft;
-var earthright;
-var earthup;
-var earthdown;
-earthleft = instance_place(x - 32, y, obj_earth);
-earthright = instance_place(x + 32, y, obj_earth);
-earthup = instance_place(x, y - 32, obj_earth);
-earthdown = instance_place(x, y + 32, obj_earth);
+
+
 
 switch (keyboard_key)
 {
     case vk_left:
         if (place_free(x -32, y) &amp;&amp; alarm[0] == 0 || (place_meeting(x -32, y, obj_earth) &amp;&amp; alarm[0] == 0))
         {   
-            if(earthleft)
+            collision_earth = instance_place(x - 32, y, obj_earth);
+            if(collision_earth)
             {
-               if(!place_meeting(earthleft.x -32,  earthleft.y, obj_earth))
+               if(!place_meeting(collision_earth.x -32,  collision_earth.y, obj_earth))
                { 
-                    earthleft.x -=32;   
+                    collision_earth.x -=32;   
                     x -=32;
                }
             }
@@ -154,11 +157,12 @@ switch (keyboard_key)
     case vk_right:
         if (place_free(x + 32, y) &amp;&amp; alarm[0] == 0 || (place_meeting(x + 32, y, obj_earth) &amp;&amp; alarm[0] == 0))
         {   
-            if(earthright)
+            collision_earth = instance_place(x + 32, y, obj_earth);
+            if(collision_earth)
             {
-               if(!place_meeting(earthright.x +32,  earthright.y, obj_earth))
+               if(!place_meeting(collision_earth.x +32,  collision_earth.y, obj_earth))
                { 
-                    earthright.x +=32;   
+                    collision_earth.x +=32;   
                     x +=32;
                }
             }
@@ -172,11 +176,12 @@ switch (keyboard_key)
     case vk_up:
         if (place_free(x , y - 32) &amp;&amp; alarm[0] == 0 || (place_meeting(x , y - 32, obj_earth) &amp;&amp; alarm[0] == 0))
         {   
-            if(earthup)
+            collision_earth = instance_place(x, y - 32, obj_earth);
+            if(collision_earth)
             {
-               if(!place_meeting(earthup.x,  earthup.y - 32 , obj_earth))
+               if(!place_meeting(collision_earth.x,  collision_earth.y - 32 , obj_earth))
                { 
-                    earthup.y -=32;   
+                    collision_earth.y -=32;   
                     y -=32;
                }
             }
@@ -190,11 +195,12 @@ switch (keyboard_key)
     case vk_down:
         if (place_free(x , y + 32) &amp;&amp; alarm[0] == 0 || (place_meeting(x , y + 32, obj_earth) &amp;&amp; alarm[0] == 0))
         {   
-            if(earthdown)
+            collision_earth = instance_place(x, y + 32, obj_earth);
+            if(collision_earth)
             {
-               if(!place_meeting(earthdown.x,  earthdown.y + 32 , obj_earth))
+               if(!place_meeting(collision_earth.x,  collision_earth.y + 32 , obj_earth))
                { 
-                    earthdown.y +=32;   
+                    collision_earth.y +=32;   
                     y +=32;
                }
             }
@@ -205,16 +211,27 @@ switch (keyboard_key)
             
         }
     break;
+    
+    
 }
 
-if(place_meeting(x, y, obj_water))
-{
-    sprite_index = spr_player_water;
-}
-else
-{
-    sprite_index = spr_player;
-}
+if(place_meeting(x,y, obj_water))
+    {
+        if(flippers == 1)
+        {
+            sprite_index = spr_player_water;
+        }
+        else
+        {
+            room_restart();
+        }
+    }
+    else
+    {
+        sprite_index = spr_player;
+    }
+
+
 
 
 </string>
@@ -287,6 +304,7 @@ draw_text(32, 130, alarm[1]); //MOVEMENTCOUNTER
 draw_text(32, 162, roomname);
 draw_text(32, 198, redkey);
 draw_text(64, 198, bluekey);
+draw_text(32, 230, meat);
 </string>
           </argument>
         </arguments>
