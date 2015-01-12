@@ -47,8 +47,8 @@ greenkey = 0;
 globalvar bluekey;
 bluekey = 0;
     //ITEMS
-globalvar flippers;
-flippers = 1;
+globalvar diving;
+diving = 0;
 </string>
           </argument>
         </arguments>
@@ -217,7 +217,7 @@ switch (keyboard_key)
 
 if(place_meeting(x,y, obj_water))
     {
-        if(flippers == 1)
+        if(diving == 1)
         {
             sprite_index = spr_player_water;
         }

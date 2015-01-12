@@ -18,6 +18,8 @@
       <sprite>sprites\spr_key_red</sprite>
       <sprite>sprites\spr_key_blue</sprite>
       <sprite>sprites\spr_keule</sprite>
+      <sprite>sprites\spr_diving</sprite>
+      <sprite>sprites\spr_speed_right</sprite>
     </sprites>
     <sprites name="Building">
       <sprite>sprites\spr_floor</sprite>
@@ -49,6 +51,8 @@
       <object>objects\obj_meat</object>
       <object>objects\obj_key_red</object>
       <object>objects\obj_key_blue</object>
+      <object>objects\obj_diving</object>
+      <object>objects\obj_speed_right</object>
     </objects>
     <objects name="Building">
       <object>objects\obj_floor</object>
