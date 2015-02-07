@@ -125,6 +125,7 @@ if(alarm[0] == -1)
 }
 //COLLISONVARIABLE
 var collision_earth;
+var collision_lock_red;
 
 //MOVEMENT
 
@@ -137,9 +138,18 @@ switch (keyboard_key)
         if (place_free(x -32, y) &amp;&amp; alarm[0] == 0 || (place_meeting(x -32, y, obj_earth) &amp;&amp; alarm[0] == 0))
         {   
             collision_earth = instance_place(x - 32, y, obj_earth);
+            collision_lock_red = instance_place(x - 32,y, obj_lock_red);
             if(collision_earth)
             {
-               if(!place_meeting(collision_earth.x -32,  collision_earth.y, obj_earth))
+               if(!place_free(collision_earth.x -32,  collision_earth.y))
+               { 
+                    collision_earth.x -=32;   
+                    x -=32;
+               }
+            }
+            else if(collision_lock_red)
+            {
+               if(!place_free(collision_earth.x -32,  collision_earth.y))
                { 
                     collision_earth.x -=32;   
                     x -=32;
@@ -160,7 +170,7 @@ switch (keyboard_key)
             collision_earth = instance_place(x + 32, y, obj_earth);
             if(collision_earth)
             {
-               if(!place_meeting(collision_earth.x +32,  collision_earth.y, obj_earth))
+               if(!place_free(collision_earth.x +32,  collision_earth.y))
                { 
                     collision_earth.x +=32;   
                     x +=32;
@@ -179,7 +189,7 @@ switch (keyboard_key)
             collision_earth = instance_place(x, y - 32, obj_earth);
             if(collision_earth)
             {
-               if(!place_meeting(collision_earth.x,  collision_earth.y - 32 , obj_earth))
+               if(!place_free(collision_earth.x,  collision_earth.y - 32))
                { 
                     collision_earth.y -=32;   
                     y -=32;
@@ -198,7 +208,7 @@ switch (keyboard_key)
             collision_earth = instance_place(x, y + 32, obj_earth);
             if(collision_earth)
             {
-               if(!place_meeting(collision_earth.x,  collision_earth.y + 32 , obj_earth))
+               if(!place_free(collision_earth.x,  collision_earth.y + 32))
                { 
                     collision_earth.y +=32;   
                     y +=32;

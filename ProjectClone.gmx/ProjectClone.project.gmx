@@ -52,7 +52,6 @@
       <object>objects\obj_key_red</object>
       <object>objects\obj_key_blue</object>
       <object>objects\obj_diving</object>
-      <object>objects\obj_speed_right</object>
     </objects>
     <objects name="Building">
       <object>objects\obj_floor</object>
